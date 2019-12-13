@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        .begin,
+        .middle,
+        .end {
+            position: fixed;
+            right: 0;
+        }
+
+        .begin {
+            top: 0;
+        }
+
+        .middle {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .end {
+            bottom: 0;
+        }
+
+        section {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .test {
+            flex-direction: row;
+        }
+
+        section div {
+            flex: 1;
+            font-size: 50px;
+            text-align: center;
+            border-top: 1px solid red;
+            margin-bottom: 500px;
+            position: relative;
+        }
+
+        section div::before {
+            content: attr(data-scroll-element);
+            position: absolute;
+            top: 0;
+            right: 100px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="begin">begin</span>
+    <span class="middle">middle</span>
+    <span class="end">end</span>
+
+    <section>
+        <div class="counter" data-duration="1000" data-scroll-element="begin">2</div>
+        <div class="counter" data-duration="1500" data-scroll-element="middle">5</div>
+        <div class="counter" data-duration="2000" data-scroll-element="end">23</div>
+        <div class="counter" data-duration="2500" data-scroll-element="begin">537</div>
+        <div class="counter" data-duration="3000" data-scroll-element="middle">45985</div>
+    </section>
+    <section class="test">
+        <div class="counter" data-duration="2000" data-scroll-element="end">2</div>
+        <div class="counter" data-duration="2000" data-scroll-element="end">5</div>
+        <div class="counter" data-duration="2000" data-scroll-element="end">23</div>
+        <div class="counter" data-duration="2000" data-scroll-element="end">537</div>
+        <div class="counter" data-duration="2000" data-scroll-element="end">45985</div>
+    </section>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="jquery.counter.js"></script>
+</body>
+
+</html>
